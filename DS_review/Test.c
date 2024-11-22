@@ -1,17 +1,59 @@
 #include <stdio.h>
 #include "DataStruct.h"
+#include <ctype.h>
 
 int main(void) {
 
     Stack stk = GetStack();
-    for (int i=1; i<=100; ++i) {
-        StackPushElem(stk, i*i);
+    
+    char string[50];
+    scanf("%s", string);
+    const char* ptr = string;
+
+    while (*ptr) {
+        if (isdigit(*ptr)) {
+            putchar(*ptr);
+        }
+
+        else if (*ptr == '+' || *ptr == '-') {
+            while (!IsEmptyStack(stk) && StackTopElem(stk) != '(') {
+                putchar(StackPopElem(stk));
+            }
+            StackPushElem(stk, *ptr);
+        }
+
+        else if (*ptr == '*' || *ptr == '/') {
+            char top;
+            while (!IsEmptyStack(stk) && ((top = StackTopElem(stk)) == '*' || top == '/')) {
+                putchar(StackPopElem(stk));
+            }
+            StackPushElem(stk, *ptr);
+        }
+
+        else if (*ptr == '(') {
+            StackPushElem(stk, *ptr);
+        }
+
+        else if (*ptr == ')') {
+            while (!IsEmptyStack(stk) && (StackTopElem(stk) != '(')) {
+                putchar(StackPopElem(stk));
+            }
+            StackPopElem(stk);
+        }
+
+        else {
+            putchar(*ptr);
+        }
+
+        ++ptr;
     }
-    int cnt = 1;
+
     while (!IsEmptyStack(stk)) {
-        printf("%d: %d\n", cnt++, StackPopElem(stk));
+        putchar(StackPopElem(stk));
     }
+
     putchar('\n');
+
     DeleteStack(stk);
 
     puts("Done !");
@@ -19,4 +61,4 @@ int main(void) {
 }
 
 // MakeFile:
-// gcc Test.c Array/Array.c List/Lists.c Stack/Stack.c Queue/Queue.c -o test.exe
+// gcc Test.c Array/Array.c List/List.c Stack/Stack.c Queue/Queue.c -o test.exe
