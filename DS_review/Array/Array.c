@@ -59,3 +59,7 @@ void PrintArray(const Array arr) {
     putchar('\n');
 }
 
+void DeleteArray(Array arr) {
+    free(arr->Data);
+    arr = NULL;
+}
