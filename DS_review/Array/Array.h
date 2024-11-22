@@ -1,10 +1,10 @@
 #ifndef __ARRAY_H_
 #define __ARRAY_H_
 
+#include "../DS_config.h"
+
 #include <stdlib.h>
 #include <stdbool.h>
-
-typedef int ElemType;
 
 typedef struct {
     int MaxSize;
@@ -43,5 +43,7 @@ static inline int GetArrCapacity(const Array arr) {
 }
 
 void PrintArray(const Array arr);
+
+void DeleteArray(Array arr);
 
 #endif
