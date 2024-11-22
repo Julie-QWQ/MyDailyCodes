@@ -11,15 +11,6 @@ List GetList(void) {
     return ret;
 }
 
-void ListPushElem(List lst, ElemType value) {
-    Iter NewNode = (Iter)malloc(sizeof(Node));
-    NewNode->data = value;
-    NewNode->next = NULL;
-    lst->Tail->next = NewNode;
-    lst->Tail = NewNode;
-    lst->LstLen++;
-}
-
 void ListInsert(List lst, Iter it, ElemType value) {
     if (it == NULL) {
         puts("Error in ListInsert: Iter not in list !");
@@ -28,6 +19,9 @@ void ListInsert(List lst, Iter it, ElemType value) {
     Iter NewNode = (Iter)malloc(sizeof(Node));
     NewNode->data = value;
     NewNode->next = it->next;
+    if (it == lst->Tail) {
+        lst->Tail = NewNode;
+    }
     it->next = NewNode;
     lst->LstLen++;
 }
@@ -50,19 +44,6 @@ void ListErase(List lst, Iter it) {
     lst->LstLen--;
 }
 
-ElemType ListPopElem(List lst, ElemType value) {
-    if (IsEmptyList(lst)) {
-        puts("Error in ListPopElem: List is empty !");
-        return ;
-    }
-    Iter tmp = lst->Header->next;
-    ElemType ret = tmp->data;
-    lst->Header->next = tmp->next;
-    free(tmp);
-    lst->LstLen--;
-    return ret;
-}
-
 void PrintList(const List lst) {
     puts("List: ");
     for (Iter it = lst->Header->next; it != NULL; IterBump(&it)) {
@@ -81,6 +62,7 @@ void ClearList(List lst) {
     }
     lst->Tail = lst->Header;
     lst->LstLen = 0;
+    lst->Header->next = NULL;
 }
 
 void DeleteList(List lst) {
