@@ -21,3 +21,6 @@ This folder realize stack container by linked-list.
 
 ### Queue
 This folder realize queue container by linked-list.
+
+### Test.c
+This file is to test the data-structure above.
