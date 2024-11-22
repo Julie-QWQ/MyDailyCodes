@@ -1,10 +1,10 @@
 #ifndef __LIST_H_
 #define __LIST_H_
 
+#include "../DS_config.h"
+
 #include <stdbool.h>
 #include <stddef.h>
-
-typedef int ElemType;
 
 typedef struct Node {
     ElemType data;
@@ -29,10 +29,6 @@ static inline Iter GetHeader(const List lst) {
 static inline Iter GetTail(const List lst) {
     return lst->Tail;
 }
-
-void ListPushElem(List lst, ElemType value);
-
-ElemType ListPopElem(List lst, ElemType value);
 
 static inline void IterSetElem(Iter lst, ElemType value) {
     lst->data = value;
