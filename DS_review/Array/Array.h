@@ -9,22 +9,24 @@
 typedef struct {
     int MaxSize;
     int ArrLen;
-    ElemType* Data;
+    ArrayElemType* Data;
 } ANode;
 
 typedef ANode* Array;
 
 Array GetArray(int maxsize);
 
+bool ArrayExpansion(Array arr, int newsize);
+
 bool ArrayResize(Array arr, int length);
 
-ElemType ArrayGetElem(const Array arr, int index);
+ArrayElemType ArrayGetElem(const Array arr, int index);
 
-void ArraySetElem(Array arr, int index, ElemType value);
+void ArraySetElem(Array arr, int index, ArrayElemType value);
 
-bool ArrayPushElem(Array arr, ElemType value);
+void ArrayPushElem(Array arr, ArrayElemType value);
 
-ElemType ArrayPopElem(Array arr);
+ArrayElemType ArrayPopElem(Array arr);
 
 static inline bool IsEmptyArray(const Array arr) {
     return !arr->ArrLen;
