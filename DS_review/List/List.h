@@ -7,7 +7,7 @@
 #include <stddef.h>
 
 typedef struct Node {
-    ElemType data;
+    ListElemType data;
     struct Node* next;
 } Node;
 
@@ -30,11 +30,11 @@ static inline Iter GetTail(const List lst) {
     return lst->Tail;
 }
 
-static inline void IterSetElem(Iter lst, ElemType value) {
+static inline void IterSetElem(Iter lst, ListElemType value) {
     lst->data = value;
 }
 
-static inline ElemType IterGetElem(const Iter it) {
+static inline ListElemType IterGetElem(const Iter it) {
     return it->data;
 }
 
@@ -59,7 +59,7 @@ static inline int GetListLen(const List lst) {
     return lst->LstLen;
 }
 
-void ListInsert(List lst, Iter it, ElemType value);
+void ListInsert(List lst, Iter it, ListElemType value);
 
 void ListErase(List lst, Iter it);
 
