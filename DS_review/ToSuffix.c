@@ -94,4 +94,4 @@ int main(void) {
 }
 
 // MakeFile:
-// gcc Test.c Array/Array.c List/List.c Stack/Stack.c Queue/Queue.c -o test.exe
+// gcc ToSuffix.c Array/Array.c List/List.c Stack/Stack.c Queue/Queue.c -o test.exe
