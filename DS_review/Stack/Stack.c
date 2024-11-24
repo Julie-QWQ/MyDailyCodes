@@ -8,14 +8,22 @@ Stack GetStack(void) {
     return ret;
 }
 
-ElemType StackPopElem(Stack stk) {
+StackElemType StackPopElem(Stack stk) {
     if (IsEmptyStack(stk)) {
         puts("Error in StackPopElem: Stack is empty !");
         return ;
     }
-    ElemType ret = stk->data->Header->next->data;
+    StackElemType ret = stk->data->Header->next->data;
     ListErase(stk->data, stk->data->Header);
     return ret;
+}
+
+StackElemType StackTopElem(Stack stk) {
+    if (IsEmptyStack(stk)) {
+        puts("Error in StackTopElem: Stack is empty !");
+        return ;
+    }
+    return stk->data->Header->next->data;
 }
 
 void DeleteStack(Stack stk) {
