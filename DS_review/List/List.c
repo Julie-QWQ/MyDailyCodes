@@ -11,7 +11,7 @@ List GetList(void) {
     return ret;
 }
 
-void ListInsert(List lst, Iter it, ElemType value) {
+void ListInsert(List lst, Iter it, ListElemType value) {
     if (it == NULL) {
         puts("Error in ListInsert: Iter not in list !");
         return ;
