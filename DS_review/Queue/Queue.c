@@ -8,12 +8,12 @@ Queue GetQueue(void) {
     return ret;
 }
 
-ElemType QueuePopElem(Queue qe) {
+QueueElemType QueuePopElem(Queue qe) {
     if (IsEmptyQueue(qe)) {
         puts("Error in QueuePopElem: Queue is empty !");
         return ;
     }
-    ElemType ret = qe->data->Header->next->data;
+    QueueElemType ret = qe->data->Header->next->data;
     ListErase(qe->data, qe->data->Header);
     return ret;
 }
