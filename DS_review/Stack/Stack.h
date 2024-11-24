@@ -12,11 +12,13 @@ typedef SNode* Stack;
 
 Stack GetStack(void);
 
-static inline void StackPushElem(Stack stk, ElemType value) {
+static inline void StackPushElem(Stack stk, StackElemType value) {
     ListInsert(stk->data, stk->data->Header, value);
 }
 
-ElemType StackPopElem(Stack stk);
+StackElemType StackPopElem(Stack stk);
+
+StackElemType StackTopElem(Stack stk);
 
 void DeleteStack(Stack stk);
 
