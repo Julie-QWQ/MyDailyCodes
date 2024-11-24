@@ -11,11 +11,11 @@ typedef QNode* Queue;
 
 Queue GetQueue(void);
 
-static inline void QueuePushElem(Queue qe, ElemType value) {
+static inline void QueuePushElem(Queue qe, QueueElemType value) {
     ListInsert(qe->data, qe->data->Tail, value);
 }
 
-ElemType QueuePopElem(Queue qe);
+QueueElemType QueuePopElem(Queue qe);
 
 void DeleteQueue(Queue qe);
 
