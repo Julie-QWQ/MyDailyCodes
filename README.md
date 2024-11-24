@@ -22,5 +22,8 @@ This folder realize stack container by linked-list.
 ### Queue
 This folder realize queue container by linked-list.
 
-### Test.c
-This file is to test the data-structure above. Now, this program can convert an infix expression into a suffix expression.
+### Tosuffix.c
+This file is to test the data-structure above. The program can convert an infix expression into a suffix expression.
+
+### Grapg.c
+This file is to test the data-structure above. The program is about graph.
